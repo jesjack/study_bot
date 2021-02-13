@@ -1,0 +1,8 @@
+{
+	"ssl_certified": {
+		"key": "/etc/letsencrypt/live/extrasmart.coffee/privkey.pem",
+		"cert": "/etc/letsencrypt/live/extrasmart.coffee/fullchain.pem"
+	},
+	"port": 3000,
+	"title": "Study Bot"
+}

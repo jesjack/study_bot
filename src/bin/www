@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+// Requeriments
+const fs = require('fs')
+const http = require('http')
+const https = require('https')
+const app = require('../../index')
+
+const { ssl_certified } = require('../config/main.conf.json')
+const { port } = require('../config/main.conf.json')
+
+// Puerto donde se ejecutará (http[s]://localhost:$port/)
+// const port = 3000
+app.set('port', port)
+
+// Iniciando servidor
+try {
+	var server = https.createServer({
+		key: fs.readFileSync(ssl_certified.key),
+		cert: fs.readFileSync(ssl_certified.cert)
+	}, app)
+} catch(error) {
+	console.error(error, 'Fallo al iniciar servidor https, iniciando http en su lugar')
+	var server = http.createServer(app)
+}
+
+server.listen(port, function(error) {
+	if(error) throw error
+	else console.log(`Study Bot iniciado en puerto ${port}`, server.address())
+})

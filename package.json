@@ -2,9 +2,12 @@
   "name": "study_bot",
   "version": "0.0.1",
   "description": "Wéb ocasional para study-bot.",
-  "main": "index.js",
+  "main": "./src/bin/www",
   "scripts": {
-    "test": "node index.js --test"
+    "test": "node ./src/bin/www --test",
+    "start": "node ./src/bin/www",
+    "dev": "npx nodemon ./src/bin/www",
+    "sass": "sass --watch ./src/private/sass:./src/public/css"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/jesjack/study_bot/issues"
   },
-  "homepage": "https://github.com/jesjack/study_bot#readme"
+  "homepage": "https://github.com/jesjack/study_bot#readme",
+  "dependencies": {
+    "circular": "^1.0.5",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7"
+  }
 }
