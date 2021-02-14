@@ -15,6 +15,13 @@ Cambios realizados
 Cosas solucionadas
 
 
+## [1.0.1] - 13/02/2021
+Elaboración del proyecto
+
+### Solucionado
+- Un monton de cosas raras
+
+
 ## [1.0.0] - 13/02/2021
 Elaboración del proyecto
 

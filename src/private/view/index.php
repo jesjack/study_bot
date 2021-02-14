@@ -16,12 +16,12 @@
 <body>
 	<input type="text" placeholder="usuario" id="user_input">
 	<input type="password" placeholder="contraseña" id="password_input">
-	<button onclick="login($('#user_input'), $('#password_input'));">Iniciar sesión</button>
-	<button onclick="createUser($('#user_input'), $('#password_input'));">Crear cuenta</button>
+	<button onclick="login($('#user_input').val(), $('#password_input').val());">Iniciar sesión</button>
+	<button onclick="createUser($('#user_input').val(), $('#password_input').val());">Crear cuenta</button>
 	<br><br>
 	<textarea id="chat_area" cols="45" rows="10" readonly onload="rawMessages();"></textarea>
 	<input type="text" placeholder="pon algo sencillo" id="chat_input">
-	<button onclick="chat();">Chatear</button>
+	<button onclick="chat();" id="chat_btn">Chatear</button>
 	
 </body>
 </html>

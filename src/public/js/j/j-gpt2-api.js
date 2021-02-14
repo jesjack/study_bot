@@ -1,16 +1,18 @@
-const URL = 'localhost:3001';
+const URL = 'http://localhost:3001';
 
 // Example: login('Angel', '12345');
-function login(user, password, callback) {
+function login(_user, password, callback) {
 	if(!callback) callback = function(error, response) {
 		if(error) console.log(error);
 		else {
-			user_id = response.login['id']
-			user = response.login['user']
+			let { id: r_id, user: r_user, password: r_password } = response.login;
+			user_id = r_id;
+			user = r_user;
+			user_password = r_password;
 		}
 	}
-	request('POST', '/login', {
-		name: user,
+	request('POST', '/session/login', {
+		name: _user,
 		password
 	}, callback);
 }
@@ -59,6 +61,12 @@ function getMessages(callback) {
 // Crear consultas de todo tipo al servidor principal
 // Example: request('POST', '/', {}, function(error, response) {});
 function request(method, url, data, callback) {
+	if(!data) data = {};
+	if(user_id) data.login = {
+		name: user,
+		password: user_password
+	};
+	console.log(data);
 	$.ajax({
 		url: URL + url,
 		data: data,
